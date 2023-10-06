@@ -120,9 +120,7 @@ public class toDoList {
         frame.getContentPane().add(panel, BorderLayout.SOUTH);
         frame.setVisible(true);
         
-    }
-    public static void main(String[] args) {
-        new toDoList();   
+    
     }
 
     public void changeTheme(JButton addButton, JButton doneButton, JButton removeButton, JButton changeThemeButton, JFrame frame, JLabel toDoLabel, JLabel doneLabel, JPanel panel, JPanel titlePanel, JButton clearButton, JScrollPane toDoScrollPane, JScrollPane doneScrollPane){
@@ -159,7 +157,7 @@ public class toDoList {
             panel.setBackground(Color.BLACK);
 
             titlePanel.setBackground(Color.BLACK);
-        }else{
+            } else {
             frame.getContentPane().setBackground(Color.WHITE);
 
             toDoScrollPane.getViewport().getView().setBackground(Color.WHITE);
@@ -193,5 +191,9 @@ public class toDoList {
 
         }
 
+    }
+    
+        public static void main(String[] args) {
+            new toDoList();   
     }
 }
