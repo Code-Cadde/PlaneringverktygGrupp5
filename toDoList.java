@@ -26,7 +26,7 @@ public class toDoList {
 
         toDoListModel = new DefaultListModel<>();
         JList<String> toDoList = new JList<>(toDoListModel);
-        doneListModel=new DefaultListModel<>();
+        doneListModel = new DefaultListModel<>();
         JList<String> doneList = new JList<>(doneListModel);
 
         Font biggerFont = new Font(toDoList.getFont().getName(), Font.PLAIN, 25);
@@ -56,6 +56,7 @@ public class toDoList {
         JButton doneButton = new JButton("Done");
         JButton clearButton = new JButton("Clear");
         JButton removeButton = new JButton("Remove");
+        JButton changeThemeButton = new JButton("Dark theme");
 
         addButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -98,7 +99,11 @@ public class toDoList {
             }
         }
         });
+        changeThemeButton.addActionListener(e ->{
+            changeTheme(addButton, doneButton, removeButton, changeThemeButton, frame, toDoLabel, doneLabel, panel, titlePanel, clearButton, toDoScrollPane, doneScrollPane);
+        });
         
+        panel.add(changeThemeButton);
         panel.add(taskField);
         panel.add(addButton);
         panel.add(doneButton);
@@ -118,5 +123,75 @@ public class toDoList {
     }
     public static void main(String[] args) {
         new toDoList();   
+    }
+
+    public void changeTheme(JButton addButton, JButton doneButton, JButton removeButton, JButton changeThemeButton, JFrame frame, JLabel toDoLabel, JLabel doneLabel, JPanel panel, JPanel titlePanel, JButton clearButton, JScrollPane toDoScrollPane, JScrollPane doneScrollPane){
+
+        if(changeThemeButton.getText() == "Dark theme"){
+            frame.getContentPane().setBackground(Color.BLACK);
+
+            toDoScrollPane.getViewport().getView().setBackground(Color.GRAY);
+            doneScrollPane.getViewport().getView().setBackground(Color.GRAY);
+
+            toDoLabel.setBackground(Color.BLACK);
+            toDoLabel.setForeground(Color.RED);
+
+            doneLabel.setOpaque(true);
+            doneLabel.setBackground(Color.BLACK);
+            doneLabel.setForeground(Color.WHITE);
+
+            addButton.setBackground(Color.BLACK);
+            addButton.setForeground(Color.WHITE);
+
+            doneButton.setBackground(Color.BLACK);
+            doneButton.setForeground(Color.WHITE);
+
+            removeButton.setBackground(Color.BLACK);
+            removeButton.setForeground(Color.WHITE);
+
+            clearButton.setBackground(Color.BLACK);
+            clearButton.setForeground(Color.WHITE);
+
+            changeThemeButton.setBackground(Color.BLACK);
+            changeThemeButton.setForeground(Color.WHITE);
+            changeThemeButton.setText("Light theme");
+
+            panel.setBackground(Color.BLACK);
+
+            titlePanel.setBackground(Color.BLACK);
+        }else{
+            frame.getContentPane().setBackground(Color.WHITE);
+
+            toDoScrollPane.getViewport().getView().setBackground(Color.WHITE);
+            doneScrollPane.getViewport().getView().setBackground(Color.WHITE);
+
+            toDoLabel.setBackground(Color.WHITE);
+            toDoLabel.setForeground(Color.RED);
+
+            doneLabel.setBackground(Color.WHITE);
+            doneLabel.setForeground(Color.BLACK);
+
+            addButton.setBackground(Color.WHITE);
+            addButton.setForeground(Color.BLACK);
+
+            doneButton.setBackground(Color.WHITE);
+            doneButton.setForeground(Color.BLACK);
+
+            removeButton.setBackground(Color.WHITE);
+            removeButton.setForeground(Color.BLACK);
+
+            clearButton.setBackground(Color.WHITE);
+            clearButton.setForeground(Color.BLACK);
+
+            changeThemeButton.setBackground(Color.WHITE);
+            changeThemeButton.setForeground(Color.BLACK);
+            changeThemeButton.setText("Dark theme");
+
+            panel.setBackground(Color.WHITE);
+
+            titlePanel.setBackground(Color.WHITE);
+
+        }
+
     }
 }
